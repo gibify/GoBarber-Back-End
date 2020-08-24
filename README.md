@@ -1,7 +1,7 @@
 # GoBarber-Server - Em desenvolvimento
 
 # Sobre
-Este projeto é uma API que servirá dados para uma aplicação web com React [acesse aqui]().
+Este projeto é uma API que servirá dados para uma aplicação web com React [acesse aqui](https://github.com/gibify/GoBarber-Front-End).
 
 ```shell 
 # clonando o projeto:
