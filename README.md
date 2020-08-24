@@ -1,4 +1,4 @@
-# GoBarber - Em desenvolvimento
+# GoBarber-Server - Em desenvolvimento
 
 # Sobre
 Este projeto é uma API que servirá dados para uma aplicação web com React [acesse aqui]().
