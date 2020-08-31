@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
+
 import AuthenticationUserService from '@modules/users/services/AuthenticationUserService';
 
 const sessionsRouter = Router();
@@ -8,7 +10,8 @@ sessionsRouter.post('/', async (request, response) => {
 
     const { email, password } = request.body;
 
-    const authenticationUser = new AuthenticationUserService();
+    const usersRepository = new UsersRepository();
+    const authenticationUser = new AuthenticationUserService(usersRepository);
 
     const { user, token } = await authenticationUser.execute({
         email,
@@ -18,8 +21,6 @@ sessionsRouter.post('/', async (request, response) => {
     delete user.password;
 
     return response.json({ user, token });
-
-        return response.status(err.statusCode).json({ error: err.message });
 
 });
 
