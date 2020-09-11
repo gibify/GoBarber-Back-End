@@ -3,11 +3,17 @@ import AppError from '@shared/errors/AppError';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 
-describe('CreateAppointment', () => {
-    it('Should be able to create a new appointmnet',  async () => {
-        const fakeAppointmentsRepository = new FakeAppointmentsRepository();
-        const createAppointment = new CreateAppointmentService(fakeAppointmentsRepository);
+let fakeAppointmentsRepository: FakeAppointmentsRepository;
+let createAppointment: CreateAppointmentService;
 
+describe('CreateAppointment', () => {
+    beforeEach(() => {
+        fakeAppointmentsRepository = new FakeAppointmentsRepository();
+        createAppointment = new CreateAppointmentService(
+            fakeAppointmentsRepository
+        );
+    })
+    it('Should be able to create a new appointmnet',  async () => {
         const appointmnet = await createAppointment.execute({
             date: new Date(),
             provider_id: '123123',
