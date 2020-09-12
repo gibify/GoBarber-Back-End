@@ -11,4 +11,5 @@ profileRouter.use(ensureAuthenticated);
 profileRouter.get('/', profileController.show);
 profileRouter.put('/', profileController.update);
 
-export default usersRouter;
+
+export default profileRouter;
