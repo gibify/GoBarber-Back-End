@@ -51,7 +51,6 @@ class ListProviderMonthAvailabilityService {
 
         return availability;
 
-
     }
 
 }
