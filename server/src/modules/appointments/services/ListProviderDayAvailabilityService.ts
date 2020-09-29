@@ -50,7 +50,7 @@ class ListProviderDayAvailabilityService {
             );
 
             return {
-                day,
+                hour,
                 available: !hasAppointmentInHour,
             };
         });
