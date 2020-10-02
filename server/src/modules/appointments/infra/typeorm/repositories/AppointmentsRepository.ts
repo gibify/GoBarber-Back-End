@@ -28,7 +28,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
         const appointments = await this.ormRepository.find({
             where: {
                 provider_id,
-                date: Raw( dateFileName => `to_char(${dateFileName}, = '${parseMonth}-${year}')`),
+                date: Raw( dateFileName => `to_char(${dateFileName}, 'MM-YYYY') = '${parseMonth}-${year}'`),
             }
         })
 
@@ -42,7 +42,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
         const appointments = await this.ormRepository.find({
             where: {
                 provider_id,
-                date: Raw( dateFileName => `to_char(${dateFileName} 'DD-MM-YYY', = '${parseDay}-${parseMonth}-${year}')`),
+                date: Raw( dateFileName => `to_char(${dateFileName}, 'DD-MM-YYYY') = '${parseDay}-${parseMonth}-${year}'`),
             }
         })
 
